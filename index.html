@@ -154,7 +154,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                3
+                4
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -213,6 +213,137 @@
 
             
             <section id="main">
+    <article id="post-fucking-blocks-syntax" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/09/17/fucking-blocks-syntax/">fucking blocks syntax</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/17/fucking-blocks-syntax/">
+            <time datetime="2016-09-16T16:46:30.000Z" itemprop="datePublished">2016-09-17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/ios/">ios</a>
+    </div>
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="声明：内容来自http-fuckingblocksyntax-com"><a href="#声明：内容来自http-fuckingblocksyntax-com" class="headerlink" title="声明：内容来自http://fuckingblocksyntax.com/ "></a><strong>声明：内容来自<a href="http://fuckingblocksyntax.com/" target="_blank" rel="external">http://fuckingblocksyntax.com/</a></strong> </h2><h1 id="How-Do-I-Declare-A-Block-in-Objective-C"><a href="#How-Do-I-Declare-A-Block-in-Objective-C" class="headerlink" title="How Do I Declare A Block in Objective-C?"></a>How Do I Declare A Block in Objective-C?</h1><h2 id="As-a-local-variable"><a href="#As-a-local-variable" class="headerlink" title="As a local variable:"></a>As a local variable:</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">returnType (^blockName)(parameterTypes) = ^returnType(parameters) &#123;...&#125;;</div></pre></td></tr></table></figure>
+<h2 id="As-a-property"><a href="#As-a-property" class="headerlink" title="As a property:"></a>As a property:</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">@property (nonatomic, copy, nullability) returnType (^blockName)(parameterTypes);</div></pre></td></tr></table></figure>
+<h2 id="As-a-method-parameter"><a href="#As-a-method-parameter" class="headerlink" title="As a method parameter:"></a>As a method parameter:</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- (void)someMethodThatTakesABlock:(returnType (^nullability)(parameterTypes))blockName;</div></pre></td></tr></table></figure>
+<h2 id="As-an-argument-to-a-method-call"><a href="#As-an-argument-to-a-method-call" class="headerlink" title="As an argument to a method call:"></a>As an argument to a method call:</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[someObject someMethodThatTakesABlock:^returnType (parameters) &#123;...&#125;];</div></pre></td></tr></table></figure>
+<h2 id="As-a-typedef"><a href="#As-a-typedef" class="headerlink" title="As a typedef:"></a>As a typedef:</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">typedef returnType (^TypeName)(parameterTypes);</div><div class="line">TypeName blockName = ^returnType(parameters) &#123;...&#125;;</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://skywarmer.github.io/2016/09/17/fucking-blocks-syntax/" data-id="cit604xvx0000nzfy3dwp6f6q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://skywarmer.github.io/2016/09/17/fucking-blocks-syntax/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://skywarmer.github.io/2016/09/17/fucking-blocks-syntax/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-clang命令" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -302,7 +433,7 @@
 
 </div>
 
-    <a data-url="https://skywarmer.github.io/2016/09/16/clang命令/" data-id="cit5wtre90004pifyq3dhsh1k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://skywarmer.github.io/2016/09/16/clang命令/" data-id="cit604xx00006nzfylm8qync7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -428,7 +559,7 @@
 
 </div>
 
-    <a data-url="https://skywarmer.github.io/2016/09/12/Core-Data/" data-id="cit5wtrdz0000pifyji5vzozu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://skywarmer.github.io/2016/09/12/Core-Data/" data-id="cit604xx30008nzfyv904q2bt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -532,7 +663,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/ios/">iOS</a>
+        <a class="article-category-link" href="/categories/ios/">ios</a>
     </div>
 
                         
@@ -553,16 +684,16 @@
 <p>Windows下</p>
 <p>使用系统自带的clip命令。</p>
 <h1 id="位于C-Windows-system32-clip-exe。"><a href="#位于C-Windows-system32-clip-exe。" class="headerlink" title="位于C:\Windows\system32\clip.exe。"></a>位于C:\Windows\system32\clip.exe。</h1><p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ echo Hello | clip               #将字符串Hello放入Windows剪贴板</div><div class="line">$ dir | clip                         #将dir命令的输出放入Windows剪切板</div><div class="line">$ clip &lt; README.TXT          #将README.TXT的文本放入Windows剪切板</div><div class="line">$ echo | clip                      # 将一个空行放入Windows剪切板，即清空Windows剪切板</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ echo Hello | clip               #将字符串Hello放入Windows剪贴板</div><div class="line">$ dir | clip                         #将dir命令的输出放入Windows剪切板</div><div class="line">$ clip &lt; README.TXT          #将README.TXT的文本放入Windows剪切板</div><div class="line">$ echo | clip                      # 将一个空行放入Windows剪切板，即清空Windows剪切板</div></pre></td></tr></table></figure>
 <p>Linux下</p>
 <p>使用xsel命令。</p>
 <p>参见笔记:How do I pipe terminal standard output (stdout) to the clipboard?</p>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cat README.TXT | xsel  #将输出放在剪切板</div><div class="line">$ cat README.TXT | xsel -b      # 如有问题，可以试试-b选项</div><div class="line">$ xsel &lt; README.TXT              # 将readme.txt的文本放入剪贴板</div><div class="line">$ xsel -c                                # 清空剪贴板</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cat README.TXT | xsel  #将输出放在剪切板</div><div class="line">$ cat README.TXT | xsel -b      # 如有问题，可以试试-b选项</div><div class="line">$ xsel &lt; README.TXT              # 将readme.txt的文本放入剪贴板</div><div class="line">$ xsel -c                                # 清空剪贴板</div></pre></td></tr></table></figure>
 <p>Mac下</p>
 <p>使用 pbcopy 命令。 # 对应有个pbpaste命令。</p>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ echo ‘Hello World!’ | pbcopy     #将字符串“Hello World！”放入剪切板</div><div class="line">$ pbpaste                               #将剪切板中内容输出到终端</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ echo ‘Hello World!’ | pbcopy     #将字符串“Hello World！”放入剪切板</div><div class="line">$ pbpaste                               #将剪切板中内容输出到终端</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -573,7 +704,7 @@
 
 </div>
 
-    <a data-url="https://skywarmer.github.io/2016/09/12/将命令行输出放在剪切板上/" data-id="cit5wtrem0009pifyfghfxbco" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://skywarmer.github.io/2016/09/12/将命令行输出放在剪切板上/" data-id="cit604xw10001nzfytl2u7k72" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -664,6 +795,15 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/ios/">ios</a></p>
+                            <p class="item-title"><a href="/2016/09/17/fucking-blocks-syntax/" class="title">fucking blocks syntax</a></p>
+                            <p class="item-date"><time datetime="2016-09-16T16:46:30.000Z" itemprop="datePublished">2016-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/ios/">ios</a></p>
                             <p class="item-title"><a href="/2016/09/16/clang命令/" class="title">clang命令</a></p>
                             <p class="item-date"><time datetime="2016-09-16T12:40:04.000Z" itemprop="datePublished">2016-09-16</time></p>
                         </div>
@@ -681,7 +821,7 @@
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/ios/">iOS</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/ios/">ios</a></p>
                             <p class="item-title"><a href="/2016/09/12/将命令行输出放在剪切板上/" class="title">将命令行输出放在剪切板上</a></p>
                             <p class="item-date"><time datetime="2016-09-12T03:15:06.000Z" itemprop="datePublished">2016-09-12</time></p>
                         </div>
@@ -696,7 +836,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">iOS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ios/">ios</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -705,7 +845,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
